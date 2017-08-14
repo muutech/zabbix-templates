@@ -1,5 +1,5 @@
 # zabbix-templates
-Zabbix Templates created/adapted by Muutech (www.muutech.com)
+Zabbix Templates created/adapted by Muutech Monitoring Solutions (www.muutech.com)
 
 If you need any help, contact us at info@muutech.com
 
