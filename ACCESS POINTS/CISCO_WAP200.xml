@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.2</version>
+    <date>2017-08-14T15:10:37Z</date>
+    <groups>
+        <group>
+            <name>Muutech Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>CISCO WAP200</template>
+            <name>CISCO WAP200</name>
+            <description/>
+            <groups>
+                <group>
+                    <name>Muutech Templates</name>
+                </group>
+            </groups>
+            <applications/>
+            <items/>
+            <discovery_rules/>
+            <httptests/>
+            <macros/>
+            <templates>
+                <template>
+                    <name>Template App SNMP Agent</name>
+                </template>
+                <template>
+                    <name>Template SNMP Device</name>
+                </template>
+            </templates>
+            <screens/>
+        </template>
+    </templates>
+</zabbix_export>
