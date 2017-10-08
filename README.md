@@ -22,6 +22,7 @@ To install, just import each template you need into Zabbix. Important, some temp
   * SNMP_INTERFACES_BY_ALIAS - NEEDED BY ALLIED_TELESIS_AT-8000S
 * SWITCHES
   * ALLIED TELESIS AT-8000S
+  * CISCO Sx200 Sx300 (CISCO SMALL BUSINESS SG200, SG300, etc.)
 * UPS
   * RIELLO UPS
   * UPS-MIB - NEEDED BY RIELLO_UPS
