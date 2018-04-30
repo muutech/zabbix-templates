@@ -5,7 +5,7 @@ If you need any help, contact us at info@muutech.com
 
 Check out our Zabbix + Grafana Demo online: http://demo.muutech.com
 
-Tested in Zabbix 3.2.X
+Tested in Zabbix 3.2.X and 3.4.X
 
 To install, just import each template you need into Zabbix. Important, some templates depends on others, mainly allocated in the SNMP folder.
 
@@ -14,6 +14,8 @@ To install, just import each template you need into Zabbix. Important, some temp
   * D-LINK DAP-2360
   * D-LINK DWL-3200AP
   * ENGENIUS EOC-3610
+* ROUTERS
+  * HUAWEI AR129CGVW-L
 * SERVERS
   * IBM AS/400
 * SNMP
