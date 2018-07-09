@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-07-09T14:40:29Z</date>
+    <date>2018-07-09T10:32:07Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -34,7 +34,7 @@
             <items>
                 <item>
                     <name>GPS</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>gps[50]</key>
@@ -171,7 +171,7 @@
                 </item>
                 <item>
                     <name>Battery Level</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>power.battery_level</key>
@@ -212,7 +212,7 @@
                 </item>
                 <item>
                     <name>Battery Source</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>power.source</key>
@@ -253,7 +253,7 @@
                 </item>
                 <item>
                     <name>Battery Status</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>power.status</key>
@@ -294,7 +294,7 @@
                 </item>
                 <item>
                     <name>CPU load</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>system.cpu.load[]</key>
@@ -335,7 +335,7 @@
                 </item>
                 <item>
                     <name>Number of CPU</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>system.cpu.num</key>
@@ -376,7 +376,7 @@
                 </item>
                 <item>
                     <name>Architecture</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>system.sw.arch</key>
@@ -417,7 +417,7 @@
                 </item>
                 <item>
                     <name>OS</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>system.sw.os[full]</key>
@@ -458,7 +458,7 @@
                 </item>
                 <item>
                     <name>Free memory</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>vm.memory.size[free]</key>
@@ -499,7 +499,7 @@
                 </item>
                 <item>
                     <name>Total memory</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>vm.memory.size[total]</key>
@@ -542,7 +542,7 @@
             <discovery_rules>
                 <discovery_rule>
                     <name>Network interface discovery</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>net.if.discovery</key>
@@ -581,7 +581,7 @@
                     <item_prototypes>
                         <item_prototype>
                             <name>Incoming network traffic on $1</name>
-                            <type>0</type>
+                            <type>7</type>
                             <snmp_community/>
                             <snmp_oid/>
                             <key>net.if.in[{#IFNAME}]</key>
@@ -632,7 +632,7 @@
                         </item_prototype>
                         <item_prototype>
                             <name>Outgoing network traffic on $1</name>
-                            <type>0</type>
+                            <type>7</type>
                             <snmp_community/>
                             <snmp_oid/>
                             <key>net.if.out[{#IFNAME}]</key>
@@ -689,7 +689,7 @@
                 </discovery_rule>
                 <discovery_rule>
                     <name>Mounted filesystem discovery</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>vfs.fs.discovery</key>
@@ -728,7 +728,7 @@
                     <item_prototypes>
                         <item_prototype>
                             <name>Free disk space on $1</name>
-                            <type>0</type>
+                            <type>7</type>
                             <snmp_community/>
                             <snmp_oid/>
                             <key>vfs.fs.size[{#FSNAME},free]</key>
@@ -770,7 +770,7 @@
                         </item_prototype>
                         <item_prototype>
                             <name>Total disk space on $1</name>
-                            <type>0</type>
+                            <type>7</type>
                             <snmp_community/>
                             <snmp_oid/>
                             <key>vfs.fs.size[{#FSNAME},total]</key>
@@ -821,7 +821,7 @@
             <macros/>
             <templates>
                 <template>
-                    <name>Template App Zabbix Agent</name>
+                    <name>Template App Zabbix Active Agent</name>
                 </template>
             </templates>
             <screens/>
