@@ -15,7 +15,7 @@ To install, just import each template you need into Zabbix. Important, some temp
   * D-LINK DWL-3200AP
   * ENGENIUS EOC-3610
 * ANDROID
-  * UNOFFICIAL_ZABBIX_AGENT - Template for Android Unofficial Zabbix Agent https://play.google.com/store/apps/details?id=fr.damongeot.zabbixagent&hl=es
+  * UNOFFICIAL ZABBIX AGENT - Template for Android Unofficial Zabbix Agent https://play.google.com/store/apps/details?id=fr.damongeot.zabbixagent&hl=es
 * ROUTERS
   * HUAWEI AR129CGVW-L
 * SERVERS
@@ -31,4 +31,4 @@ To install, just import each template you need into Zabbix. Important, some temp
   * RIELLO UPS
   * UPS-MIB - NEEDED BY RIELLO_UPS
 * ZABBIX AGENTS
-  * ACTIVE_ZABBIX_AGENT - NEEDED BY UNOFFICIAL_ZABBIX_AGENT
+  * ACTIVE ZABBIX AGENT - NEEDED BY UNOFFICIAL_ZABBIX_AGENT
