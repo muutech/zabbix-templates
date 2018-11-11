@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2017-08-14T15:31:05Z</date>
+    <date>2018-11-11T17:30:12Z</date>
     <groups>
         <group>
             <name>Muutech Templates</name>
@@ -72,7 +72,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>HOST-RESOURCES-MIB::hrStorageAllocationUnits.{#SNMPINDEX}</snmp_oid>
-                            <key>hrStorageAllocationUnits[{#SNMPVALUE}]</key>
+                            <key>hrStorageAllocationUnits[{#SNMPVALUE},{#SNMPINDEX}]</key>
                             <delay>3600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -116,7 +116,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>HOST-RESOURCES-MIB::hrStorageDescr.{#SNMPINDEX}</snmp_oid>
-                            <key>hrStorageDescr[{#SNMPVALUE}]</key>
+                            <key>hrStorageDescr[{#SNMPVALUE},{#SNMPINDEX}]</key>
                             <delay>3600</delay>
                             <history>7</history>
                             <trends>0</trends>
@@ -160,7 +160,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>hrStorageSizeInBytes[{#SNMPVALUE}]</key>
+                            <key>hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}]</key>
                             <delay>3600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -178,7 +178,7 @@
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
-                            <params>last(&quot;hrStorageSize[{#SNMPVALUE}]&quot;) * last(&quot;hrStorageAllocationUnits[{#SNMPVALUE}]&quot;)</params>
+                            <params>last(&quot;hrStorageSize[{#SNMPVALUE},{#SNMPINDEX}]&quot;) * last(&quot;hrStorageAllocationUnits[{#SNMPVALUE},{#SNMPINDEX}]&quot;)</params>
                             <ipmi_sensor/>
                             <data_type>0</data_type>
                             <authtype>0</authtype>
@@ -204,7 +204,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>HOST-RESOURCES-MIB::hrStorageSize.{#SNMPINDEX}</snmp_oid>
-                            <key>hrStorageSize[{#SNMPVALUE}]</key>
+                            <key>hrStorageSize[{#SNMPVALUE},{#SNMPINDEX}]</key>
                             <delay>3600</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -248,7 +248,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>hrStorageUsedInBytes[{#SNMPVALUE}]</key>
+                            <key>hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -266,7 +266,7 @@
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
-                            <params>last(&quot;hrStorageUsed[{#SNMPVALUE}]&quot;) * last(&quot;hrStorageAllocationUnits[{#SNMPVALUE}]&quot;)</params>
+                            <params>last(&quot;hrStorageUsed[{#SNMPVALUE},{#SNMPINDEX}]&quot;) * last(&quot;hrStorageAllocationUnits[{#SNMPVALUE},{#SNMPINDEX}]&quot;)</params>
                             <ipmi_sensor/>
                             <data_type>0</data_type>
                             <authtype>0</authtype>
@@ -292,7 +292,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>HOST-RESOURCES-MIB::hrStorageUsed.{#SNMPINDEX}</snmp_oid>
-                            <key>hrStorageUsed[{#SNMPVALUE}]</key>
+                            <key>hrStorageUsed[{#SNMPVALUE},{#SNMPINDEX}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -333,14 +333,14 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE}].last(0)} &gt; 0.99</expression>
+                            <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} &gt; 0.99</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Free disk space is less than 1% on volume {#SNMPVALUE}</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
@@ -354,14 +354,14 @@
                             </tags>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE}].last(0)} &gt; 0.95</expression>
+                            <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} &gt; 0.95</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Free disk space is less than 5% on volume {#SNMPVALUE}</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
@@ -369,7 +369,7 @@
                             <dependencies>
                                 <dependency>
                                     <name>Free disk space is less than 1% on volume {#SNMPVALUE}</name>
-                                    <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE}].last(0)} &gt; 0.99</expression>
+                                    <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} &gt; 0.99</expression>
                                     <recovery_expression/>
                                 </dependency>
                             </dependencies>
@@ -381,14 +381,14 @@
                             </tags>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE}].last(0)} &gt; 0.9</expression>
+                            <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} &gt; 0.9</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Free disk space is less than 10% on volume {#SNMPVALUE}</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
@@ -396,7 +396,7 @@
                             <dependencies>
                                 <dependency>
                                     <name>Free disk space is less than 5% on volume {#SNMPVALUE}</name>
-                                    <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE}].last(0)} &gt; 0.95</expression>
+                                    <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} &gt; 0.95</expression>
                                     <recovery_expression/>
                                 </dependency>
                             </dependencies>
@@ -408,14 +408,14 @@
                             </tags>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE}].last(0)} &gt; 0.8</expression>
+                            <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} &gt; 0.8</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Free disk space is less than 20% on volume {#SNMPVALUE}</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
-                            <status>0</status>
+                            <status>1</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
@@ -423,7 +423,7 @@
                             <dependencies>
                                 <dependency>
                                     <name>Free disk space is less than 10% on volume {#SNMPVALUE}</name>
-                                    <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE}].last(0)} &gt; 0.9</expression>
+                                    <expression>{Template SNMP Disks v1:hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} / {Template SNMP Disks v1:hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}].last(0)} &gt; 0.9</expression>
                                     <recovery_expression/>
                                 </dependency>
                             </dependencies>
@@ -463,7 +463,7 @@
                                     <type>2</type>
                                     <item>
                                         <host>Template SNMP Disks v1</host>
-                                        <key>hrStorageSizeInBytes[{#SNMPVALUE}]</key>
+                                        <key>hrStorageSizeInBytes[{#SNMPVALUE},{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -475,7 +475,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>Template SNMP Disks v1</host>
-                                        <key>hrStorageUsedInBytes[{#SNMPVALUE}]</key>
+                                        <key>hrStorageUsedInBytes[{#SNMPVALUE},{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
