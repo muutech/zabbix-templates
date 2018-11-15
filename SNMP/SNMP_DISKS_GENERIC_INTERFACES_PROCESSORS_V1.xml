@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2018-11-11T17:30:12Z</date>
+    <date>2018-11-15T20:31:45Z</date>
     <groups>
         <group>
             <name>Muutech Templates</name>

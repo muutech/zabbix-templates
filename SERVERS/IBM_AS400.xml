@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2018-11-11T17:31:46Z</date>
+    <date>2018-11-15T20:31:55Z</date>
     <groups>
         <group>
             <name>Muutech Templates</name>
@@ -486,9 +486,9 @@
                             <application/>
                         </screen_item>
                         <screen_item>
-                            <resourcetype>20</resourcetype>
+                            <resourcetype>19</resourcetype>
                             <width>500</width>
-                            <height>200</height>
+                            <height>100</height>
                             <x>0</x>
                             <y>1</y>
                             <colspan>1</colspan>
@@ -501,7 +501,7 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <name>Disk space usage {#SNMPVALUE}</name>
+                                <key>hrProcessorLoad[{#SNMPINDEX}]</key>
                                 <host>IBM AS400</host>
                             </resource>
                             <max_columns>1</max_columns>
@@ -509,8 +509,8 @@
                         </screen_item>
                         <screen_item>
                             <resourcetype>20</resourcetype>
-                            <width>500</width>
-                            <height>100</height>
+                            <width>600</width>
+                            <height>300</height>
                             <x>1</x>
                             <y>1</y>
                             <colspan>1</colspan>
@@ -523,7 +523,7 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <name>Processors</name>
+                                <name>Disk space usage {#SNMPVALUE}</name>
                                 <host>IBM AS400</host>
                             </resource>
                             <max_columns>1</max_columns>
@@ -582,7 +582,7 @@
             <yaxismin>0.0000</yaxismin>
             <yaxismax>100.0000</yaxismax>
             <show_work_period>1</show_work_period>
-            <show_triggers>1</show_triggers>
+            <show_triggers>0</show_triggers>
             <type>0</type>
             <show_legend>1</show_legend>
             <show_3d>0</show_3d>
@@ -596,7 +596,7 @@
                 <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>5</drawtype>
-                    <color>1A7C11</color>
+                    <color>6666FF</color>
                     <yaxisside>1</yaxisside>
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
@@ -608,7 +608,7 @@
                 <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
-                    <color>F63100</color>
+                    <color>FF3333</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
@@ -620,7 +620,7 @@
                 <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
-                    <color>2774A4</color>
+                    <color>FF33FF</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
