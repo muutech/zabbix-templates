@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-04-30T17:41:20Z</date>
+    <date>2018-12-08T12:13:18Z</date>
     <groups>
         <group>
             <name>Muutech Templates</name>
@@ -199,7 +199,7 @@
                     <delay>60s</delay>
                     <history>90d</history>
                     <trends>365d</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
                     <units>dBm</units>
@@ -246,7 +246,7 @@
                     <delay>60s</delay>
                     <history>90d</history>
                     <trends>0</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>1</value_type>
                     <allowed_hosts/>
                     <units/>
@@ -287,7 +287,7 @@
                     <delay>60s</delay>
                     <history>90d</history>
                     <trends>365d</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units>%</units>
@@ -328,7 +328,7 @@
                     <delay>60s</delay>
                     <history>90d</history>
                     <trends>365d</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units>%</units>
@@ -369,7 +369,7 @@
                     <delay>60s</delay>
                     <history>90d</history>
                     <trends>365d</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units>ºC</units>
@@ -410,7 +410,7 @@
                     <delay>1h</delay>
                     <history>90d</history>
                     <trends>365d</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units>bytes</units>
@@ -456,7 +456,7 @@
                     <delay>60s</delay>
                     <history>90d</history>
                     <trends>365d</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units>bytes</units>
@@ -502,7 +502,7 @@
                     <delay>60s</delay>
                     <history>90d</history>
                     <trends>365d</trends>
-                    <status>0</status>
+                    <status>1</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
                     <units>%</units>
@@ -537,7 +537,12 @@
             </items>
             <discovery_rules/>
             <httptests/>
-            <macros/>
+            <macros>
+                <macro>
+                    <macro>{$WAN}</macro>
+                    <value>FTTH</value>
+                </macro>
+            </macros>
             <templates>
                 <template>
                     <name>Template App SNMP Agent</name>
@@ -643,6 +648,48 @@
                 <tag>
                     <tag>PERF</tag>
                     <value>STORAGE</value>
+                </tag>
+            </tags>
+        </trigger>
+        <trigger>
+            <expression>{HUAWEI AR129CGVW-L:entPhysicalSerialNum.9.diff(0)}&gt;0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Serial has changed</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>1</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags>
+                <tag>
+                    <tag>INVENTORY</tag>
+                    <value/>
+                </tag>
+            </tags>
+        </trigger>
+        <trigger>
+            <expression>{HUAWEI AR129CGVW-L:entPhysicalSoftwareRev.9.diff(0)}&gt;0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Software has changed</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>1</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags>
+                <tag>
+                    <tag>INVENTORY</tag>
+                    <value/>
                 </tag>
             </tags>
         </trigger>
