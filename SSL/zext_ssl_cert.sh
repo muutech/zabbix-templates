@@ -50,7 +50,7 @@ fi
 
 -i)
 issue_dn=`openssl s_client -servername $servername -host $host -port $port -showcerts $starttls -prexit </dev/null 2>/dev/null |
-          sed -n '/BEGIN CERTIFICATE/,/END CERT/p 2>/dev/null' |
+          sed -n '/BEGIN CERTIFICATE/,/END CERT/p' 2>/dev/null |
           openssl x509 -text 2>/dev/null |
           sed -n 's/ *Issuer: *//p' 2>/dev/null`
 
