@@ -25,7 +25,7 @@
                 <item>
                     <name>HTTPS Service is running</name>
                     <type>SIMPLE</type>
-                    <key>net.tcp.service[https]</key>
+                    <key>net.tcp.service[https,,{$SSL_PORT}]</key>
                     <delay>90</delay>
                     <history>7d</history>
                     <valuemap>
