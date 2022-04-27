@@ -119,7 +119,7 @@
                     <type>EXTERNAL</type>
                     <key>zext_ssl_cert.sh[-i,{HOST.CONN},{$SSL_PORT},{$SNI}]</key>
                     <delay>21600</delay>
-                    <history>0</history>
+                    <history>7d</history>
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
                     <applications>
