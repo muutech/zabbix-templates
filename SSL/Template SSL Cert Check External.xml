@@ -127,6 +127,15 @@
                             <name>SSL certificate</name>
                         </application>
                     </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{diff()}=1</expression>
+                            <name>SSL certificate on {HOSTNAME} issuer changed</name>
+                            <opdata>SSL certificate Issuer {ITEM.VALUE}</opdata>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
                 </item>
             </items>
             <macros>
