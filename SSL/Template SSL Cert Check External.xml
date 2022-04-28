@@ -60,7 +60,7 @@
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;7</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 7 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 7 days ({ITEM.VALUE} remaining)</name>
                             <priority>HIGH</priority>
                             <dependencies>
                                 <dependency>
@@ -71,43 +71,43 @@
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;15</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 15 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 15 days ({ITEM.VALUE} remaining)</name>
                             <priority>AVERAGE</priority>
                             <dependencies>
                                 <dependency>
-                                    <name>SSL certificate on {HOSTNAME} expires in less than 7 days ({ITEM.VALUE} days remaining)</name>
+                                    <name>SSL certificate on {HOSTNAME} expires in less than 7 days ({ITEM.VALUE} remaining)</name>
                                     <expression>{Template SSL Cert Check External:zext_ssl_cert.sh[-d,{HOST.CONN},{$SSL_PORT},{$SNI}].last(0)}&lt;7</expression>
                                 </dependency>
                             </dependencies>
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;30</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 30 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 30 days ({ITEM.VALUE} remaining)</name>
                             <priority>WARNING</priority>
                             <dependencies>
                                 <dependency>
-                                    <name>SSL certificate on {HOSTNAME} expires in less than 15 days ({ITEM.VALUE} days remaining)</name>
+                                    <name>SSL certificate on {HOSTNAME} expires in less than 15 days ({ITEM.VALUE} remaining)</name>
                                     <expression>{Template SSL Cert Check External:zext_ssl_cert.sh[-d,{HOST.CONN},{$SSL_PORT},{$SNI}].last(0)}&lt;15</expression>
                                 </dependency>
                             </dependencies>
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;60</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 60 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 60 days ({ITEM.VALUE} remaining)</name>
                             <priority>INFO</priority>
                             <dependencies>
                                 <dependency>
-                                    <name>SSL certificate on {HOSTNAME} expires in less than 30 days ({ITEM.VALUE} days remaining)</name>
+                                    <name>SSL certificate on {HOSTNAME} expires in less than 30 days ({ITEM.VALUE} remaining)</name>
                                     <expression>{Template SSL Cert Check External:zext_ssl_cert.sh[-d,{HOST.CONN},{$SSL_PORT},{$SNI}].last(0)}&lt;30</expression>
                                 </dependency>
                             </dependencies>
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;90</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 90 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 90 days ({ITEM.VALUE} remaining)</name>
                             <dependencies>
                                 <dependency>
-                                    <name>SSL certificate on {HOSTNAME} expires in less than 60 days ({ITEM.VALUE} days remaining)</name>
+                                    <name>SSL certificate on {HOSTNAME} expires in less than 60 days ({ITEM.VALUE} remaining)</name>
                                     <expression>{Template SSL Cert Check External:zext_ssl_cert.sh[-d,{HOST.CONN},{$SSL_PORT},{$SNI}].last(0)}&lt;60</expression>
                                 </dependency>
                             </dependencies>
