@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-04-12T08:47:25Z</date>
+    <date>2022-04-28T10:00:19Z</date>
     <groups>
         <group>
             <name>MyTemplates</name>
@@ -25,7 +25,7 @@
                 <item>
                     <name>HTTPS Service is running</name>
                     <type>SIMPLE</type>
-                    <key>net.tcp.service[https]</key>
+                    <key>net.tcp.service[https,,{$SSL_PORT}]</key>
                     <delay>90</delay>
                     <history>7d</history>
                     <valuemap>
@@ -60,7 +60,7 @@
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;7</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 7 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 7 days ({ITEM.VALUE} remaining)</name>
                             <priority>HIGH</priority>
                             <dependencies>
                                 <dependency>
@@ -71,43 +71,43 @@
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;15</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 15 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 15 days ({ITEM.VALUE} remaining)</name>
                             <priority>AVERAGE</priority>
                             <dependencies>
                                 <dependency>
-                                    <name>SSL certificate on {HOSTNAME} expires in less than 7 days ({ITEM.VALUE} days remaining)</name>
+                                    <name>SSL certificate on {HOSTNAME} expires in less than 7 days ({ITEM.VALUE} remaining)</name>
                                     <expression>{Template SSL Cert Check External:zext_ssl_cert.sh[-d,{HOST.CONN},{$SSL_PORT},{$SNI}].last(0)}&lt;7</expression>
                                 </dependency>
                             </dependencies>
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;30</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 30 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 30 days ({ITEM.VALUE} remaining)</name>
                             <priority>WARNING</priority>
                             <dependencies>
                                 <dependency>
-                                    <name>SSL certificate on {HOSTNAME} expires in less than 15 days ({ITEM.VALUE} days remaining)</name>
+                                    <name>SSL certificate on {HOSTNAME} expires in less than 15 days ({ITEM.VALUE} remaining)</name>
                                     <expression>{Template SSL Cert Check External:zext_ssl_cert.sh[-d,{HOST.CONN},{$SSL_PORT},{$SNI}].last(0)}&lt;15</expression>
                                 </dependency>
                             </dependencies>
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;60</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 60 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 60 days ({ITEM.VALUE} remaining)</name>
                             <priority>INFO</priority>
                             <dependencies>
                                 <dependency>
-                                    <name>SSL certificate on {HOSTNAME} expires in less than 30 days ({ITEM.VALUE} days remaining)</name>
+                                    <name>SSL certificate on {HOSTNAME} expires in less than 30 days ({ITEM.VALUE} remaining)</name>
                                     <expression>{Template SSL Cert Check External:zext_ssl_cert.sh[-d,{HOST.CONN},{$SSL_PORT},{$SNI}].last(0)}&lt;30</expression>
                                 </dependency>
                             </dependencies>
                         </trigger>
                         <trigger>
                             <expression>{last(0)}&lt;90</expression>
-                            <name>SSL certificate on {HOSTNAME} expires in less than 90 days ({ITEM.VALUE} days remaining)</name>
+                            <name>SSL certificate on {HOSTNAME} expires in less than 90 days ({ITEM.VALUE} remaining)</name>
                             <dependencies>
                                 <dependency>
-                                    <name>SSL certificate on {HOSTNAME} expires in less than 60 days ({ITEM.VALUE} days remaining)</name>
+                                    <name>SSL certificate on {HOSTNAME} expires in less than 60 days ({ITEM.VALUE} remaining)</name>
                                     <expression>{Template SSL Cert Check External:zext_ssl_cert.sh[-d,{HOST.CONN},{$SSL_PORT},{$SNI}].last(0)}&lt;60</expression>
                                 </dependency>
                             </dependencies>
@@ -119,7 +119,7 @@
                     <type>EXTERNAL</type>
                     <key>zext_ssl_cert.sh[-i,{HOST.CONN},{$SSL_PORT},{$SNI}]</key>
                     <delay>21600</delay>
-                    <history>0</history>
+                    <history>7d</history>
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
                     <applications>
@@ -127,6 +127,15 @@
                             <name>SSL certificate</name>
                         </application>
                     </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{diff()}=1</expression>
+                            <name>SSL certificate on {HOSTNAME} issuer changed</name>
+                            <opdata>SSL certificate Issuer {ITEM.VALUE}</opdata>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
                 </item>
             </items>
             <macros>
