@@ -56,7 +56,7 @@ issue_dn=`openssl s_client -servername $servername -host $host -port $port -show
 
 if [ -n "$issue_dn" ]
 then
-    issuer=`echo $issue_dn | sed -n 's/.*CN=*//p'`
+    issuer=`echo $issue_dn | sed -n 's/.*CN =*//p'`
     echo $issuer
 fi
 ;;
